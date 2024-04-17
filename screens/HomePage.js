@@ -26,14 +26,14 @@ import thumbnailNight from "../assets/thumbnailNight.png";
 export default function HomePage({ navigation }) {
   const [dayTime, setDayTime] = useState(false);
 
-  useEffect(() => {
-    const currentTime = new Date();
-    const currentHour = currentTime.getHours();
-    //IF CURRENT TIME AT 6AM - 6PM THEN ITS TRUE
-    if (currentHour > 5 && currentHour < 19) {
-      setDayTime(true);
-    }
-  });
+  // useEffect(() => {
+  //   const currentTime = new Date();
+  //   const currentHour = currentTime.getHours();
+  //   //IF CURRENT TIME AT 6AM - 6PM THEN ITS TRUE
+  //   if (currentHour > 5 && currentHour < 19) {
+  //     setDayTime(true);
+  //   }
+  // });
 
   const handleScanQRCode = () => {
     navigation.navigate("Scan");

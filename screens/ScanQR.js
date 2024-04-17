@@ -49,8 +49,8 @@ export default function ScanQR({ navigation }) {
     return <Text>No access to camera</Text>;
   }
 
-  const handleCloseScan = () => {
-    console.log("HAA");
+  const handleToDetail = () => {
+    navigation.navigate("Detail");
   };
 
   return (
@@ -62,17 +62,40 @@ export default function ScanQR({ navigation }) {
       {scanned && (
         <Button title={"Tap to Scan Again"} onPress={() => setScanned(false)} />
       )}
+      <TouchableOpacity onPress={handleToDetail} style={styles.scan__success}>
+        <Text
+          style={{
+            color: "#FFF",
+            fontWeight: "600",
+            fontSize: 20,
+            textTransform: "uppercase",
+          }}
+        >
+          scan successfully
+        </Text>
+      </TouchableOpacity>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
   scan__container: {
+    position: "relative",
     width: "100%",
     height: "100%",
+    justifyContent: "center",
+    alignItems: "center",
   },
   scan__close_btn: {
     marginHorizontal: res * 0.04,
     marginVertical: res * 0.07,
+  },
+  scan__success: {
+    position: "absolute",
+    bottom: res * 0.07,
+    backgroundColor: "#374259",
+    paddingHorizontal: res * 0.04,
+    paddingVertical: res * 0.02,
+    borderRadius: res * 0.01,
   },
 });
